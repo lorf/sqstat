@@ -1,0 +1,17 @@
+Q: I get "Connection refused" error message
+A: Check $squidhost and $squidport in the config.inc.php file. Try to telnet
+   to this host and port from the machine on which script is running
+
+Q: Can sqstat display user name in connections list if i use user 
+   authentication?
+A: Yes. But you need to use squid 2.6 STABLE because sqmgr protocol in 
+   Squid <2.6  have no "username" field. Also, you can use "hosts" file
+   instead to list your users. 
+
+Q: I found a bug or want to request a new feature. How can i do this?
+A: If you found a bug - send me bugreport to samm@os2.kiev.ua. 
+   Please try to be detailt, and not forgot to specify your PHP version.
+   Also, please remember that SqStat us a free-time project.
+   
+Q: Your English is very bad!
+A: Yes, i know ;-) You can proofread script texts and send me your comments

@@ -1,0 +1,39 @@
+07/10/06 - version 1.20
+	+ stat row is now duplicated on top of the table 
+	+ added group_by statement which allow to group by host or username
+	+ added support for username field in squid 2.6+.
+	# replaced <? with <?php
+	# fixed "undefined index" error
+	# use htmlspecialchars() in uri processing, reported by Clemson, Chris
+	+ sqstat now hosted at sourceforge.net, so you can use cvs version :)
+
+22/07/06 - version 1.10
+	+ addes support for AVG/CURRENT CPS based on Danil V. Gerun patches
+	+ Added tooltip information about every connection (javascript based).
+	+ Added ability to add more than one proxy in config file
+	# version detection code fixed
+	
+04/07/06 - version 1.01
+	# removed debug output. Thanks to Danil V. Gerun for the report. 
+
+29/06/06 - version 1.00
+	+ Added code to check avaibility of the pcre extension
+	# Updated TODO :)
+	+ Addes support for the "hosts" like file
+	# fixed log() for PHP less then 4.3
+	+ settings are now in external file, config.inc.php
+
+03/05/06 - version 0.95
+	+ added (optional) authorization, see $cachemgr_passwd
+	# added "Stop" button to stop page reloading
+	# Added page generation time to script output
+	# Some M$ IE related xhtml fixes
+	
+28/04/06 - version 0.90
+	+ added code for resolve ip to host name
+	# fixed handling of long url`s. Added SQSTAT_SHOWLEN constant
+	+ added code for human readable format size and time output
+	+ added external css for color customization
+	+ Valid XHTML 1.0 Transitional \m/ :)
+	# added LICENSE, README and CHANGELOG files
+	# more accurate squid version detection
