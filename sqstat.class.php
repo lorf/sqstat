@@ -104,7 +104,7 @@ class squidstat{
 		}
 		fclose($this->fp);
 		
-		if($raw[0]!="HTTP/1.0 200 OK"){
+		if($raw[0]!="HTTP/1.0 200 OK" && $raw[0]!="HTTP/1.1 200 OK"){
 			$this->errno=1;
 			$this->errstr="Cannot get data. Server answered: $raw[0]";
 			return false;
@@ -132,6 +132,9 @@ class squidstat{
 					if(substr($v,0,3)=="me:") $parsed["con"][$connection]["me"]=substr($v,4);
 					if(substr($v,0,4)=="uri ") $parsed["con"][$connection]["uri"]=substr($v,4);
 					if(substr($v,0,10)=="delay_pool") $parsed["con"][$connection]["delay_pool"]=substr($v,11);
+					/* "local:" and "remote:" fields replaced "me:" and "peer:" fields presumably in Squid 3. */
+					if(substr($v,0,7)=="remote:") $parsed["con"][$connection]["peer"]=substr($v,8);
+					if(substr($v,0,6)=="local:") $parsed["con"][$connection]["me"]=substr($v,7);
 					
 					if(preg_match('/out.offset \d+, out.size (\d+)/',$v,$matches)){
 						$parsed["con"][$connection]["bytes"]=$matches[1];
