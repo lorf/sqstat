@@ -37,10 +37,10 @@ if(is_file("config.inc.php")) {
 	@$hosts_file=$hosts_file[$config];
 	if(isset($group_by[$config])) $group_by=$group_by[$config];
 	else $group_by="ip";
-	if(isset($group_by[$config]) && !preg_match('/^(host|username)$/',$group_by)) {
+	if(isset($group_by[$config]) && !preg_match('/^(host|username|username_or_host|username_and_host)$/',$group_by)) {
 		$squidclass->errno=4;
 		$squidclass->errstr="Error in the configuration file.<br>".
-		'"group_by" can be only "username" or "host"';
+		'"group_by" can be only "username", "username_or_host", "username_and_host" or "host"';
 		$squidclass->showError();
 		exit(4);
 	}

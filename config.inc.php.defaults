@@ -20,9 +20,10 @@ $resolveip[0]=false;
 /* uncomment next line if you want to use hosts-like file. 
    See hosts.txt.dist. */
 // $hosts_file[0]="hosts.txt"
-/* Group users by hostname - "host" or by User - "username". Username work only 
-   with squid 2.6+ */ 
-$group_by[0]="host";
+/* Group users by hostname - "host", by User - "username", by User and Host -
+ * "username_and_host" or by User or Host - "username_or_host". Username work
+ * only with squid 2.6+ */ 
+$group_by[0]="username_or_host";
 
 /* you can specify more than one proxy in the configuration file, e.g.: */
 // $squidhost[1]="192.168.0.2";

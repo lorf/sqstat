@@ -170,7 +170,15 @@ class squidstat{
 			break;
 			case "username":
 			$group_by_name="User";
-			$group_by_key='return $v["username"];';
+			$group_by_key='return isset($v["username"]) ? $v["username"] : "N/A";';
+			break;
+			case "username_or_host":
+			$group_by_name="User or Host";
+			$group_by_key='return isset($v["username"]) ? $v["username"] : $ip;';
+			break;
+			case "username_and_host":
+			$group_by_name="User and Host";
+			$group_by_key='return (isset($v["username"]) ? $v["username"] : "Unknown") . "/" . long2ip($ip);';
 			break;
 			default:
 			die("wrong group_by!");
@@ -192,7 +200,6 @@ class squidstat{
 				$ip=ip2long(substr($v["peer"],0,strpos($v["peer"],":")));
 			}
 			$v['connection'] = $key;
-			if(!isset($v["username"])) $v["username"]="N/A";
 			$users[eval($group_by_key)][]=$v;
 		}
 		ksort($users);
