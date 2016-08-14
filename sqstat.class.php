@@ -8,7 +8,7 @@ class squidstat{
 	var $errno;
 	
 	var $use_sessions=false;
-	function squidstat(){
+	function __construct(){
 		if (!function_exists("preg_match")){
 			$this->errno=5;
 			$this->errstr='You need to install <a href="http://www.php.net/pcre/" target="_blank">PHP pcre extension</a> to run this script';
